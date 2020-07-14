@@ -1,37 +1,16 @@
 package cn.hdj.mybatis.demo.entity;
 
+import lombok.Data;
+
 /**
  * @author hdj
  * @version 1.0
  * @date 2020/7/13 下午11:22
  * @description:
  */
+@Data
 public class User {
     private Integer id;
     private String name;
     private Integer age;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 }

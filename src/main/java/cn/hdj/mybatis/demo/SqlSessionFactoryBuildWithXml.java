@@ -1,11 +1,15 @@
 package cn.hdj.mybatis.demo;
 
+import cn.hdj.mybatis.demo.dao.UserMapper;
+import cn.hdj.mybatis.demo.entity.User;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @author hdj
@@ -16,8 +20,18 @@ import java.io.InputStream;
 public class SqlSessionFactoryBuildWithXml {
 
     public static void main(String[] args) throws IOException {
+        //读取配置文件
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
+        //构造SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        //创建SqlSession
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            //获取Mapper接口
+            UserMapper mapper = session.getMapper(UserMapper.class);
+            //执行sql
+            List<User> users = mapper.selectAll();
+            System.out.println(users);
+        }
     }
 }

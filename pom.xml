@@ -11,6 +11,7 @@
     <properties>
         <mybatis-version>3.5.5</mybatis-version>
         <h2-version>1.4.200</h2-version>
+        <lombox-version>1.18.12</lombox-version>
     </properties>
 
     <dependencies>
@@ -24,6 +25,13 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${h2-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombox-version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
