@@ -1,4 +1,4 @@
-package cn.hdj.mybatis.demo;
+package cn.hdj.mybatis.example;
 
 import org.apache.ibatis.datasource.DataSourceFactory;
 import org.apache.ibatis.datasource.unpooled.UnpooledDataSourceFactory;

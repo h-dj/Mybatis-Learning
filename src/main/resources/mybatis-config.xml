@@ -17,6 +17,6 @@
     </environments>
     <!--    Mapper文件-->
     <mappers>
-        <mapper resource="cn/hdj/mybatis/demo/dao/UserMapper.xml"/>
+        <package name="cn.hdj.mybatis.example.dao"/>
     </mappers>
 </configuration>

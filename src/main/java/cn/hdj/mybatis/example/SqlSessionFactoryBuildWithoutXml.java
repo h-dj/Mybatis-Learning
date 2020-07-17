@@ -1,29 +1,28 @@
-package cn.hdj.mybatis.demo;
+package cn.hdj.mybatis.example;
 
-import cn.hdj.mybatis.demo.dao.UserMapper;
-import cn.hdj.mybatis.demo.entity.User;
+import cn.hdj.mybatis.example.dao.UserMapper;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.h2.jdbcx.JdbcDataSource;
 
-import java.util.List;
+import java.io.IOException;
 
 /**
  * @author hdj
  * @version 1.0
- * @date 2020/7/13 下午10:57
- * @description:
+ * @date 2020/7/13 下午10:47
+ * @description: Java配置，初始化 SqlSessionFactory
  */
-public class GetSqlSession {
-    public static void main(String[] args) {
+public class SqlSessionFactoryBuildWithoutXml {
+
+    public static void main(String[] args) throws IOException {
         //构建数据源
         JdbcDataSource dataSource = new JdbcDataSource();
-        dataSource.setUrl("jdbc:h2:/home/hdj/db/h2db;AUTO_SERVER=TRUE");
+        dataSource.setUrl("jdbc:h2:./test");
         dataSource.setUser("admin");
         dataSource.setPassword("admin");
         //事务工厂
@@ -36,11 +35,5 @@ public class GetSqlSession {
         configuration.addMapper(UserMapper.class);
         //初始化SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
-
-        try (SqlSession session = sqlSessionFactory.openSession()) {
-            UserMapper mapper = session.getMapper(UserMapper.class);
-            List<User> users = mapper.selectAll();
-            System.out.println(users);
-        }
     }
 }

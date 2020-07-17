@@ -1,0 +1,66 @@
+2020-07-16 10:41:45.000 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 10:41:45.025 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 10:41:45.042 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 10:43:47.038 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 10:43:47.038 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 10:43:47.061 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 10:43:47.061 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 10:43:47.084 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 10:43:47.084 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 11:04:59.873 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020-07-16 11:04:59.876 [main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020-07-16 11:04:59.889 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2020-07-16 11:04:59.889 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2020-07-16 11:04:59.889 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2020-07-16 11:04:59.890 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - PooledDataSource forcefully closed/removed all connections.
+2020-07-16 11:04:59.958 [main] DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction - Opening JDBC Connection
+2020-07-16 11:05:00.033 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - Created connection 247944893.
+2020-07-16 11:05:00.034 [main] DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction - Setting autocommit to false on JDBC Connection [conn0: url=jdbc:h2:/home/hdj/db/h2db user=ADMIN]
+2020-07-16 11:05:00.041 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 11:05:00.066 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 11:05:00.093 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 11:05:00.096 [main] DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction - Resetting autocommit to true on JDBC Connection [conn0: url=jdbc:h2:/home/hdj/db/h2db user=ADMIN]
+2020-07-16 11:05:00.097 [main] DEBUG org.apache.ibatis.transaction.jdbc.JdbcTransaction - Closing JDBC Connection [conn0: url=jdbc:h2:/home/hdj/db/h2db user=ADMIN]
+2020-07-16 11:05:00.098 [main] DEBUG o.apache.ibatis.datasource.pooled.PooledDataSource - Returned connection 247944893 to pool.
+2020-07-16 11:16:34.551 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 11:16:34.576 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 11:16:34.597 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 11:16:44.164 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 11:16:44.188 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 11:16:44.206 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 11:30:59.732 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 11:30:59.757 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 11:30:59.777 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 11:37:54.419 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 11:37:54.452 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 11:37:54.477 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 11:38:36.832 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 11:38:36.854 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 11:38:36.874 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 11:58:57.126 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectById - ==>  Preparing: select * from user where id = ?
+2020-07-16 11:58:57.163 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectById - ==> Parameters: 1(Integer)
+2020-07-16 11:58:57.180 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectById - <==      Total: 1
+2020-07-16 14:41:06.455 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 14:41:06.481 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 14:41:06.504 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 17:16:59.691 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 17:16:59.714 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 17:16:59.742 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 17:18:28.331 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 17:18:28.354 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 17:18:28.381 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 17:26:13.845 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 17:26:13.877 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 17:26:13.904 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 17:36:04.278 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 17:36:04.310 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 17:36:04.327 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 17:36:16.606 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==>  Preparing: select * from user
+2020-07-16 17:36:16.636 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - ==> Parameters: 
+2020-07-16 17:36:16.664 [main] DEBUG cn.hdj.mybatis.example.dao.UserMapper.selectAll - <==      Total: 2
+2020-07-16 17:37:50.162 [main] DEBUG cn.hdj.mybatis.example.dao.StudentMapper.list - ==>  Preparing: select * from student
+2020-07-16 17:37:50.186 [main] DEBUG cn.hdj.mybatis.example.dao.StudentMapper.list - ==> Parameters: 
+2020-07-16 17:37:50.207 [main] DEBUG cn.hdj.mybatis.example.dao.StudentMapper.list - <==      Total: 6
+2020-07-16 17:39:29.078 [main] DEBUG cn.hdj.mybatis.example.dao.StudentMapper.list - ==>  Preparing: select * from student
+2020-07-16 17:39:29.100 [main] DEBUG cn.hdj.mybatis.example.dao.StudentMapper.list - ==> Parameters: 
+2020-07-16 17:39:29.132 [main] DEBUG cn.hdj.mybatis.example.dao.StudentMapper.list - <==      Total: 6

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hdj.mybatis.example.dao.StudentMapper">
+
+    <!--
+    将会传入这条语句的参数的类全限定名或别名。
+    这个属性是可选的，因为 MyBatis 可以通过类型处理器（TypeHandler）推断出具体传入语句的参数，默认值为未设置（unset）。
+
+    推荐写上
+    -->
+    <insert id="addStudent" parameterType="cn.hdj.mybatis.example.entity.Student">
+        INSERT INTO STUDENT (SNO,SNAME,SSEX,SBIRTHDAY,SCLASS)
+        VALUES (#{sno},#{sname},#{ssex},#{sbirthday},#{sclass});
+    </insert>
+
+    <!--批量插入
+    foreach标签
+    -->
+    <insert id="addStudentBatch" parameterType="cn.hdj.mybatis.example.entity.Student">
+        INSERT INTO STUDENT (SNO,SNAME,SSEX,SBIRTHDAY,SCLASS)
+        VALUES
+        <foreach item="item" collection="list" separator=",">
+            (#{item.sno}, #{item.sname}, #{item.ssex}, #{item.sbirthday},#{item.sclass})
+        </foreach>
+    </insert>
+
+
+    <!--
+
+    -->
+    <update id="updateStudentById" parameterType="cn.hdj.mybatis.example.entity.Student">
+        update STUDENT
+        set
+        SNAME = #{sname},
+        SSEX = #{ssex},
+        SBIRTHDAY = #{sbirthday},
+        SCLASS = #{sclass}
+        where SNO = #{sno}
+    </update>
+
+    <!--resultType 结果集映射类型
+    注意，如果返回的是集合，那应该设置为集合包含的类型，而不是集合本身的类型。
+    -->
+    <select id="list" resultType="cn.hdj.mybatis.example.entity.Student">
+        select * from student
+    </select>
+</mapper>

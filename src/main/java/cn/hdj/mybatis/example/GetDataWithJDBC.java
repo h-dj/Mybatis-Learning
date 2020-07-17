@@ -1,4 +1,4 @@
-package cn.hdj.mybatis.demo;
+package cn.hdj.mybatis.example;
 
 import java.sql.*;
 

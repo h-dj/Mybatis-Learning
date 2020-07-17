@@ -1,7 +1,7 @@
-package cn.hdj.mybatis.demo;
+package cn.hdj.mybatis.example;
 
-import cn.hdj.mybatis.demo.dao.UserMapper;
-import cn.hdj.mybatis.demo.entity.User;
+import cn.hdj.mybatis.example.dao.UserMapper;
+import cn.hdj.mybatis.example.entity.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

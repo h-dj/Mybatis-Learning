@@ -1,4 +1,4 @@
-package cn.hdj.mybatis.demo.entity;
+package cn.hdj.mybatis.example.entity;
 
 import lombok.Data;
 

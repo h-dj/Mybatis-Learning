@@ -1,6 +1,7 @@
-package cn.hdj.mybatis.demo.dao;
+package cn.hdj.mybatis.example.dao;
 
-import cn.hdj.mybatis.demo.entity.User;
+import cn.hdj.mybatis.example.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -10,7 +11,8 @@ import java.util.List;
  * @date 2020/7/13 下午10:53
  * @description:
  */
+@Mapper
 public interface UserMapper {
-
    List<User> selectAll();
+   User selectById(Integer id);
 }
