@@ -1,4 +1,4 @@
-package cn.hdj.mybatis.example.dao;
+package cn.hdj.mybatis.example.dao1;
 
 import cn.hdj.mybatis.example.entity.User;
 import org.apache.ibatis.annotations.Mapper;

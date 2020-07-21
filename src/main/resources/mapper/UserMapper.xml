@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.hdj.mybatis.example.dao.UserMapper">
+<mapper namespace="cn.hdj.mybatis.example.dao1.UserMapper">
     <!--resultType 结果集映射类型
     注意，如果返回的是集合，那应该设置为集合包含的类型，而不是集合本身的类型。
     -->
