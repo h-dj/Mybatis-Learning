@@ -1,4 +1,0 @@
-2020-07-16 11:38:36.877 [main] INFO  cn.hdj.mybatis.MyBatisUseTest - [User(id=1, name=Jerry, age=27), User(id=2, name=Angel, age=25)]
-2020-07-16 11:58:57.182 [main] INFO  cn.hdj.mybatis.MyBatisUseTest - User(id=1, name=Jerry, age=27)
-2020-07-16 17:37:50.210 [main] INFO  cn.hdj.mybatis.MyBatisUseTest - [null, null, null, null, null, null]
-2020-07-16 17:39:29.134 [main] INFO  cn.hdj.mybatis.MyBatisUseTest - [Student(sno=108, sname=曾华, ssex=男, sbirthday=Thu Sep 01 00:00:00 CST 1977, sclass=95033), Student(sno=105, sname=匡明, ssex=男, sbirthday=Thu Oct 02 00:00:00 CST 1975, sclass=95031), Student(sno=107, sname=王丽, ssex=女, sbirthday=Fri Jan 23 00:00:00 CST 1976, sclass=95033), Student(sno=101, sname=李军, ssex=男, sbirthday=Fri Feb 20 00:00:00 CST 1976, sclass=95033), Student(sno=109, sname=王芳, ssex=女, sbirthday=Mon Feb 10 00:00:00 CST 1975, sclass=95031), Student(sno=103, sname=陆君, ssex=男, sbirthday=Mon Jun 03 00:00:00 CST 1974, sclass=95031)]
