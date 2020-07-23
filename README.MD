@@ -35,3 +35,60 @@
 ![](https://ftp.bmp.ovh/imgs/2020/07/6c023df327b749ca.png)
 
 ### 四、 Mybatis 是如何进行分页的？分页插件的原理是什么？
+
+1. Mybatis使用RowBounds对象进行分页，它是针对ResultSet结果集执行的内存分页，而非物理分页。
+2. 可以在sql内直接书写带有物理分页的参数来完成物理分页功能，也可以使用分页插件来完成物理分页。
+3. 分页插件的基本原理是使用Mybatis提供的插件接口，实现自定义插件，在插件的拦截方法内拦截待执行的sql，然后重写sql，根据dialect方言，添加对应的物理分页语句和物理分页参数。
+4. MyBatis 的分页使用例子
+- 接口定义
+```
+public interface UserMapper {
+   List<User> selectPage(RowBounds rowBounds);
+}
+```
+- xml
+```
+<select id="selectPage" resultType="cn.hdj.mybatis.example.entity.User">
+        select * from user
+</select>
+```
+
+- 调用
+```java
+public class SqlSessionFactoryBuildWithXml {
+    public static void main(String[] args) throws IOException {
+        //读取配置文件
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        //构造SqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        //创建SqlSession
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            //从第二条记录开始，取一条
+            //RowBounds(int offset, int limit)
+            List<User> list = mapper.selectPage(new RowBounds(1, 1));
+            System.out.println(list);
+        }
+    }
+}
+```
+- 内存分页源码
+ ```
+//内存分页源码
+//org.apache.ibatis.executor.resultset.DefaultResultSetHandler
+private void skipRows(ResultSet rs, RowBounds rowBounds) throws SQLException {
+    if (rs.getType() != ResultSet.TYPE_FORWARD_ONLY) {
+      if (rowBounds.getOffset() != RowBounds.NO_ROW_OFFSET) {
+        rs.absolute(rowBounds.getOffset());
+      }
+    } else {
+      for (int i = 0; i < rowBounds.getOffset(); i++) {
+        if (!rs.next()) {
+          break;
+        }
+      }
+    }
+}
+```
+
+

@@ -3,6 +3,7 @@ package cn.hdj.mybatis.example;
 import cn.hdj.mybatis.example.dao1.UserMapper;
 import cn.hdj.mybatis.example.entity.User;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -15,7 +16,7 @@ import java.util.List;
  * @author hdj
  * @version 1.0
  * @date 2020/7/13 下午10:47
- * @description:  读取XML配置，初始化 SqlSessionFactory
+ * @description: 读取XML配置，初始化 SqlSessionFactory
  */
 public class SqlSessionFactoryBuildWithXml {
 
@@ -32,6 +33,9 @@ public class SqlSessionFactoryBuildWithXml {
             //执行sql
             List<User> users = mapper.selectAll();
             System.out.println(users);
+
+            List<User> list = mapper.selectPage(new RowBounds(1, 1));
+            System.out.println(list);
         }
     }
 }

@@ -18,4 +18,7 @@
     <select id="selectById" resultType="cn.hdj.mybatis.example.entity.User" parameterType="int">
         select * from user where id = #{id}
     </select>
+    <select id="selectPage" resultType="cn.hdj.mybatis.example.entity.User">
+        select * from user
+    </select>
 </mapper>
