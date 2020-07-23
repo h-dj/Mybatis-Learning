@@ -1,6 +1,8 @@
 package cn.hdj.mybatis.example.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author hdj
@@ -9,6 +11,8 @@ import lombok.Data;
  * @description:
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     private Integer id;
     private String name;

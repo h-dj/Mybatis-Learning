@@ -168,16 +168,16 @@
 
     <!-- 4. 最终的策略 -->
     <!-- 4.1 开发环境:打印控制台-->
-<!--    <springProfile name="dev">  &lt;!&ndash; 设置指定包下的级别，这样的话  就可以在控制台输出sql语句了 &ndash;&gt;-->
-<!--        <logger name="org.mybatis" level="debug"/>-->
-<!--        <logger name="cn.hdj.mybatis" level="debug"/>-->
-<!--    </springProfile>-->
+    <!--    <springProfile name="dev">  &lt;!&ndash; 设置指定包下的级别，这样的话  就可以在控制台输出sql语句了 &ndash;&gt;-->
+    <!--        <logger name="org.mybatis" level="debug"/>-->
+    <!--        <logger name="cn.hdj.mybatis" level="debug"/>-->
+    <!--    </springProfile>-->
 
     <logger name="cn.hdj.mybatis.example.dao" level="debug"/>
     <logger name="org.mybatis" level="debug"/>
 
 
-    <root level="info" >
+    <root level="info">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="DEBUG_FILE"/>
         <appender-ref ref="INFO_FILE"/>

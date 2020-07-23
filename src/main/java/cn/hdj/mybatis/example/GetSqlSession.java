@@ -2,6 +2,8 @@ package cn.hdj.mybatis.example;
 
 import cn.hdj.mybatis.example.dao1.UserMapper;
 import cn.hdj.mybatis.example.entity.User;
+import org.apache.ibatis.builder.xml.XMLMapperBuilder;
+import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
@@ -11,6 +13,8 @@ import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.h2.jdbcx.JdbcDataSource;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -20,7 +24,7 @@ import java.util.List;
  * @description:
  */
 public class GetSqlSession {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //构建数据源
         JdbcDataSource dataSource = new JdbcDataSource();
         dataSource.setUrl("jdbc:h2:/home/hdj/db/h2db;AUTO_SERVER=TRUE");
@@ -35,7 +39,12 @@ public class GetSqlSession {
         Configuration configuration = new Configuration(environment);
         //添加Mapper接口
         configuration.addMapper(UserMapper.class);
-
+        //解析Mapper.xml文件
+        //自定义xml文件位置
+        String resource = "mapper/UserMapper.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        XMLMapperBuilder mapperParser = new XMLMapperBuilder(inputStream, configuration, resource, configuration.getSqlFragments());
+        mapperParser.parse();
         //初始化SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
                 .build(configuration);

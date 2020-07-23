@@ -3,6 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.hdj.mybatis.example.dao1.UserMapper">
+
+    <!--    定义映射-->
+    <resultMap id="constructorMapper" type="cn.hdj.mybatis.example.entity.User2">
+        <constructor>
+            <idArg name="id" column="id" javaType="int"></idArg>
+            <arg name="name" column="name" javaType="string"></arg>
+            <arg name="age" column="age" javaType="int"></arg>
+        </constructor>
+
+    </resultMap>
+
+    <insert id="insert" parameterType="cn.hdj.mybatis.example.entity.User">
+        INSERT INTO user(name,age) VALUES
+        (#{name},#{age});
+    </insert>
+
+    <insert id="batchInsert">
+        INSERT INTO user(name,age) VALUES
+        <foreach collection="list" separator="," item="item">
+            (#{item.name},#{item.age})
+        </foreach>
+    </insert>
+
+
     <!--resultType 结果集映射类型
     注意，如果返回的是集合，那应该设置为集合包含的类型，而不是集合本身的类型。
     -->
@@ -19,6 +43,14 @@
         select * from user where id = #{id}
     </select>
     <select id="selectPage" resultType="cn.hdj.mybatis.example.entity.User">
+        select * from user
+    </select>
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from user
+    </select>
+
+    <!--引用结果映射-->
+    <select id="selectAll2" resultMap="constructorMapper">
         select * from user
     </select>
 </mapper>

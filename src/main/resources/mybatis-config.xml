@@ -3,6 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+    <plugins>
+        <plugin interceptor="cn.hdj.mybatis.example.intercept.SlowSqlInterceptor">
+            <property name="limitSecond" value="0"/>
+        </plugin>
+    </plugins>
+
     <!--    标签用于配置环境信息-->
     <environments default="development">
         <environment id="development">
