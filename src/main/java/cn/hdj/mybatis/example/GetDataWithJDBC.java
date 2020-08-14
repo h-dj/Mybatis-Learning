@@ -15,14 +15,29 @@ public class GetDataWithJDBC {
         Class.forName("org.h2.Driver");
         //获取连接对象
         Connection connection = DriverManager.getConnection("jdbc:h2:/home/hdj/db/h2db;AUTO_SERVER=TRUE", "admin", "admin");
+
+        //如果需要操作事务
+        // connection.setAutoCommit(false) ;    // 取消掉自动提交
+        ////如果有多个操作，需要回滚到特定保存点
+        //Savepoint savepoint = connection.setSavepoint();
+
         //创建statement
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from user");
-        while (resultSet.next()) {
-            int id = resultSet.getInt("id");
-            String name = resultSet.getString("name");
-            int age = resultSet.getInt("age");
-            System.out.println("id=" + id + " name=" + name + " age=" + age);
+
+        try {
+            //获取结果集
+            ResultSet resultSet = statement.executeQuery("select * from user");
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                int age = resultSet.getInt("age");
+                System.out.println("id=" + id + " name=" + name + " age=" + age);
+            }
+        } catch (Exception e) {
+            //如果报错，回滚
+            //connection.rollback();
+            //回滚特定保存点
+            //connection.rollback(savepoint);
         }
     }
 }

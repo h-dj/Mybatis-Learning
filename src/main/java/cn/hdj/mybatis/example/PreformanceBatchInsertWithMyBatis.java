@@ -16,7 +16,6 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
-import org.openjdk.jmh.runner.options.TimeValue;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +30,12 @@ import java.util.concurrent.TimeUnit;
  * @date 2020/7/23 上午11:44
  * @description: 测试 MyBatis 的批量插入
  */
+@Fork(1)
+@Threads(1)
+@BenchmarkMode(Mode.Throughput)
+@Warmup(iterations = 3)
+@Measurement(iterations = 5)
+@OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Slf4j
 public class PreformanceBatchInsertWithMyBatis {
 
@@ -40,17 +45,16 @@ public class PreformanceBatchInsertWithMyBatis {
         /**
          * 测试从100 到 1000000 条的性能
          */
-        @Param(value = {"1000", "10000", "100000"})
+        @Param(value = {"1000", "5000", "10000","20000"})
         private int length;
 
         private SqlSessionFactory sqlSessionFactory;
 
         @Setup
         public void init() throws IOException {
-            //useServerPrepStmts=false&rewriteBatchedStatements=true&useCompression=true
             //构建数据源
             MysqlDataSource dataSource = new MysqlDataSource();
-            dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8");
+            dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&useServerPrepStmts=false&rewriteBatchedStatements=true&useCompression=true");
             dataSource.setUser("root");
             dataSource.setPassword("123456");
             //事务工厂
@@ -104,7 +108,10 @@ public class PreformanceBatchInsertWithMyBatis {
                 user.setAge(new Random().nextInt(100));
                 mapper.insert(user);
             }
+            session.flushStatements();
+            session.clearCache();
             session.commit();
+
         } catch (Exception e) {
             log.error(e.getMessage(), e);
             throw e;
@@ -138,12 +145,6 @@ public class PreformanceBatchInsertWithMyBatis {
     public static void main(String[] args) throws RunnerException {
         Options options = new OptionsBuilder()
                 .include(PreformanceBatchInsertWithMyBatis.class.getSimpleName())
-                .threads(4)
-                .forks(1)
-                .mode(Mode.AverageTime)
-                .warmupIterations(3).warmupTime(TimeValue.seconds(1))
-                .measurementIterations(5).measurementTime(TimeValue.seconds(1))
-                .timeUnit(TimeUnit.MILLISECONDS)
                 .resultFormat(ResultFormatType.JSON)
                 .result("mybatis-jmh.json")
                 .build();
